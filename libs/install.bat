@@ -1,0 +1,1 @@
+mvn install:install-file "-Dfile=D:\VTMap_DATA\RTC_WORK_SPACE\SOURCECODE\CoreVTM\vtm-auth-service\libs\bulksms-client.jar" "-DgroupId=com.viettel.smsbulk" "-DartifactId=smsbulk" "-Dversion=1.0" "-Dpackaging=jar" "-DgeneratePom=true"
