@@ -1,7 +1,6 @@
 package vn.com.viettel.email.utils.email;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import vn.com.viettel.email.utils.config.EmailConfigValue;
@@ -27,9 +26,6 @@ public class EmailService {
 
     public EmailService(EmailConfigValue emailConfig) {
         this.emailConfig = emailConfig;
-    }
-
-    public EmailService() {
     }
 
     private Properties getProperties() {
@@ -97,7 +93,7 @@ public class EmailService {
 
             return true;
         } catch (Exception e) {
-            LOGGER.info("EmailService", e);
+            LOGGER.error("EmailService", e);
         }
 
         return false;

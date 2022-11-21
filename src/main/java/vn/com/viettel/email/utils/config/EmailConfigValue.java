@@ -1,14 +1,13 @@
 package vn.com.viettel.email.utils.config;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
 
 @Data
 public class EmailConfigValue {
-    private String smtpHost = "125.235.240.36";
+    private String smtpHostMailVT = "125.235.240.36";
+    private String smtpHost ;
     private String smtpHostGmail = "smtp.gmail.com";
     private String transportProtocol = "smtps";
     private int timeout = 30000;

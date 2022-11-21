@@ -65,9 +65,14 @@ public class EmailServiceBuilder {
         Assert.hasLength(emailConfig.getSmtpUser(), "Smtp User cannot be be null");
         Assert.hasLength(emailConfig.getPw(), "Smtp User Password cannot be be null");
 
-        if (emailConfig.getSmtpUser().endsWith("@gmail.com")) {
-            emailConfig.setSmtpHost(emailConfig.getSmtpHostGmail());
+        if (emailConfig.getSmtpHost() == null) {
+            if (emailConfig.getSmtpUser().endsWith("@gmail.com")) {
+                emailConfig.setSmtpHost(emailConfig.getSmtpHostGmail());
+            } else if (emailConfig.getSmtpUser().endsWith("@viettel.com.vn")) {
+                emailConfig.setSmtpHost(emailConfig.getSmtpHostMailVT());
+            }
         }
+
 
         return new EmailService(emailConfig);
     }

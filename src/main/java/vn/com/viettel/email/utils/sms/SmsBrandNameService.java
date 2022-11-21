@@ -1,13 +1,10 @@
 package vn.com.viettel.email.utils.sms;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import vn.com.viettel.email.utils.config.SmsBrandNameConfigValue;
 import vn.com.viettel.email.utils.sms.bo.ResultBO;
 import vn.com.viettel.email.utils.sms.bo.WsCpMt;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;

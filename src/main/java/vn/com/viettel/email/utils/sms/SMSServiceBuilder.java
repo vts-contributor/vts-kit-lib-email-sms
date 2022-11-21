@@ -1,11 +1,7 @@
 package vn.com.viettel.email.utils.sms;
 
 import org.springframework.util.Assert;
-import vn.com.viettel.email.utils.config.EmailConfigValue;
 import vn.com.viettel.email.utils.config.SmsBrandNameConfigValue;
-import vn.com.viettel.email.utils.email.EmailService;
-
-import java.io.File;
 //import com.viettel.vtm.client.request.auth.BasicEmail;
 
 

@@ -1,63 +1,65 @@
-# library support email for spring boot
+# library support send email and sms for spring boot
+<b>Feature List</b>
+* [Send Email](#send-email)
+* [Send SMS](#send-sms)
 
-## Usage
+## Send Email
 * Just add dependency to existing spring boot project
 ```xml
 <dependency>
-    <groupId>vn.com.viettel.core</groupId>
-    <artifactId>vts-kit-lib-email</artifactId>
-    <version>1.0-RELEASE</version>
+    <groupId>com.atviettelsolutions</groupId>
+    <artifactId>vts-kit-lib-email-sms</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
-* Then, add the following properties to the application-*.properties file.
-```properties
-mail.smtp.host=125.235.240.36
-mail.transport.protocol=smtps
-mail.smtp.timeout=30000
-mail.smtp.socketFactory.port=465    # Default 465 (for SSL and 587 for TSL)
-mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
-mail.smtp.auth=true                 # SMTP authentication needs to be activated
-
-
-mail.smtp.user=                     # User's email address
-mail.smtp.password=                 # User's email password
-```
-
-* Next, Define `EmailSender` instance.
-```java
-@Autowired
-private EmailSender emailSender;
-```
-
-- With default case: you just need to add the codes like below
+- With default case: if use Viettel email or Gmail, You just need to add the codes like below:
 ```java
 boolean result = new EmailServiceBuilder()
-        .authentication("USER_NAME","PASSWORD")
+        .authentication("USER_NAME","PASSWORD")//Sender's email
         .subject("Test send Email")
         .content("Test send email")
         .toRecipients(new String[]{"duc.doanquang@gmail.com"})
-        .ccRecipients(new String[]{"ducdq1@viettel.com.vn"})
-        .attachments(new File[]{new File("D:\\eula.1028.txt")})//optional: attach files
+        .ccRecipients(new String[]{"ducdq1@viettel.com.vn"})//optional
+        .attachments(new File[]{new File("D:\\file.txt")})//optional: attach files
         .build()
         .send();
 ```
-- With custom case: You just need to add the SMTP host and SMTP port you want
+- With custom case: You can config an other SMTP host and SMTP port you want:
 ```java
 boolean result = new EmailServiceBuilder()
-                .authentication("USER_NAME","PASSWORD")
+                .authentication("USER_NAME","PASSWORD")//Sender's email
                 .subject("Test send Email")
                 .content("Test send email")
                 .smtpHost("SMTP_HOST")//set custom smtp host
                 .smtpPort("SMTP_PORT")//set custom smtp port
                 .toRecipients(new String[]{"duc.doanquang@gmail.com"})
                 .ccRecipients(new String[]{"ducdq1@viettel.com.vn"})
-                .attachments(new File[]{new File("D:\\eula.1028.txt")})//optional: attach files
+                .attachments(new File[]{new File("D:\\file.txt")})//optional: attach files
                 .build()
                 .send();
 ```
 
 Returns true on success and false otherwise on failure
+
+
+## Send SMS
+
+### Using
+
+* You just need to add the codes like below:
+```java
+ResultBO resultBo = new SMSServiceBuilder()
+                .authentication("USER_NAME", "PASSWORD")//authen BULK SMS
+                .cpCode("YOUR_CP_CODE")
+                .serviceId("YOUR_SERVICE_ID")
+                .msisdn("TO_PHONE_NUMBER")//receiver phone number
+                .content("SMS_CONTENT")//sms content
+                .build()
+                .send();
+```
+
+ResultBO return message and result of performance results
 
 ## Contribute
 
