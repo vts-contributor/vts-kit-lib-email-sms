@@ -20,7 +20,6 @@ import java.util.Properties;
  *
  * @param_phone
  */
-@Service
 public class EmailService {
 
     private static final Logger LOGGER = Logger.getLogger(EmailService.class);

@@ -10,7 +10,7 @@ import java.io.File;
 
 
 /**
- * Lib Support send Email
+ * Lib Support send SMS
  *
  * @param_phone
  */

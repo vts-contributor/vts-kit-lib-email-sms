@@ -14,13 +14,8 @@ public class EmailConfigValue {
     private int timeout = 30000;
     private String smtpPort = "465";
     private String socketFactoryClass = "javax.net.ssl.SSLSocketFactory";
-
-    @Value("${mail.smtp.user:null}")
     private String smtpUser;
-
-    @Value("${mail.smtp.password:null}")
     private String pw;
-
     private String[] toRecipients;
     private String[] ccRecipients;
     private File[] attachments;
