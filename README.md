@@ -1,4 +1,4 @@
-# library support send email and sms for spring boot
+# Library support send email and sms for spring boot
 <b>Feature List</b>
 * [Send Email](#send-email)
 * [Send SMS](#send-sms)
