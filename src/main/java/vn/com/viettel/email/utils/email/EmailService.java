@@ -1,6 +1,7 @@
 package vn.com.viettel.email.utils.email;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import vn.com.viettel.email.utils.config.EmailConfigValue;
@@ -21,7 +22,7 @@ import java.util.Properties;
  */
 public class EmailService {
 
-    private static final Logger LOGGER = Logger.getLogger(EmailService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
     private EmailConfigValue emailConfig;
 
     public EmailService(EmailConfigValue emailConfig) {

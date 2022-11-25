@@ -1,6 +1,7 @@
 package vn.com.viettel.email.utils.sms;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vn.com.viettel.email.utils.config.SmsBrandNameConfigValue;
 import vn.com.viettel.email.utils.sms.bo.ResultBO;
 import vn.com.viettel.email.utils.sms.bo.WsCpMt;
@@ -12,7 +13,7 @@ import java.io.OutputStream;
 import java.net.*;
 
 public class SmsBrandNameService {
-    private static final Logger LOGGER = Logger.getLogger(SmsBrandNameService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SmsBrandNameService.class);
 
     private SmsBrandNameConfigValue config;
 
