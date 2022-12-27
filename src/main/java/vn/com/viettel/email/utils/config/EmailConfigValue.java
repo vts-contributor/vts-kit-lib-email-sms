@@ -1,13 +1,24 @@
 package vn.com.viettel.email.utils.config;
 
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
 
 @Data
 public class EmailConfigValue {
-    private String smtpHostMailVT = "125.235.240.36";
-    private String smtpHost ;
+    private final Logger logger = LoggerFactory.getLogger(EmailConfigValue.class);
+
+    private String smtpHostMailVT;
+    private String smtpHost;
     private String smtpHostGmail = "smtp.gmail.com";
     private String transportProtocol = "smtps";
     private int timeout = 30000;
@@ -20,5 +31,17 @@ public class EmailConfigValue {
     private File[] attachments;
     private String content;
     private String subject;
+
+    public String getSmtpHostMailVT() {
+        try {
+            Resource resource = new ClassPathResource("/sms_application.properties");
+            Properties props = PropertiesLoaderUtils.loadProperties(resource);
+            smtpHostMailVT = props.getProperty("smtpHostMailVT");
+        } catch (Exception e) {
+            logger.error("Invalid Smtp Host", e);
+        }
+
+        return smtpHostMailVT;
+    }
 
 }
