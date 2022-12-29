@@ -20,7 +20,7 @@ boolean result = new EmailServiceBuilder()
         .subject("Test send Email")
         .content("Test send email")
         .toRecipients(new String[]{"duc.doanquang@gmail.com"})
-        .ccRecipients(new String[]{"ducdq1@viettel.com.vn"})//optional
+        .ccRecipients(new String[]{"duc.doanquang@gmail.com"})//optional
         .attachments(new File[]{new File("D:\\file.txt")})//optional: attach files
         .build()
         .send();
@@ -34,7 +34,7 @@ boolean result = new EmailServiceBuilder()
                 .smtpHost("SMTP_HOST")//set custom smtp host
                 .smtpPort("SMTP_PORT")//set custom smtp port
                 .toRecipients(new String[]{"duc.doanquang@gmail.com"})
-                .ccRecipients(new String[]{"ducdq1@viettel.com.vn"})
+                .ccRecipients(new String[]{"duc.doanquang@gmail.com"})
                 .attachments(new File[]{new File("D:\\file.txt")})//optional: attach files
                 .build()
                 .send();
