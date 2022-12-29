@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SmsBrandNameConfigValue {
-    private String url = "http://10.60.106.216:8009/bulkapi";
+    private String url = null;
     private String xmlns = "http://impl.bulkSms.ws/";
     private String userName;
     private String pw;
